@@ -1152,6 +1152,7 @@ _widgets:
   notifications: "Notifications"
   timeline: "Timeline"
   calendar: "Calendar"
+  calendar2: "Calendar with Juche Year"
   trends: "Trending"
   clock: "Clock"
   rss: "RSS reader"

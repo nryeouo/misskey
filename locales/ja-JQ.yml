@@ -1185,6 +1185,7 @@ _widgets:
   notifications: "通知"
   timeline: "タイムライン"
   calendar: "月暦"
+  calendar2: "月暦＋主体年号"
   trends: "急上昇"
   clock: "時計"
   rss: "RSS閲覧器"
