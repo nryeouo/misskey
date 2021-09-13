@@ -2,7 +2,8 @@
 <div class="mkw-calendar" :class="{ _panel: !props.transparent }">
 	<div class="calendar" :class="{ isHoliday }">
 		<p class="month-and-year">
-			<span class="year">{{ $t('yearX', { year }) }}</span>
+			<span class="jucheYear" v-if="props.showJucheYear">{{ $t('jucheYearX', { jucheYear, year }) }}</span>
+			<span class="year" v-else>{{ $t('yearX', { year }) }}</span>
 			<span class="month">{{ $t('monthX', { month }) }}</span>
 		</p>
 		<p class="day">{{ $t('dayX', { day }) }}</p>
@@ -43,6 +44,10 @@ const widget = define({
 			type: 'boolean',
 			default: false,
 		},
+		showJucheYear: {
+			type: 'boolean',
+			default: false,
+		}
 	})
 });
 
@@ -52,6 +57,7 @@ export default defineComponent({
 		return {
 			now: new Date(),
 			year: null,
+			jucheYear: null,
 			month: null,
 			day: null,
 			weekDay: null,
@@ -77,6 +83,7 @@ export default defineComponent({
 			const ny = now.getFullYear();
 
 			this.year = ny;
+			this.jucheYear = ny - 1911;
 			this.month = nm + 1;
 			this.day = nd;
 			this.weekDay = [
