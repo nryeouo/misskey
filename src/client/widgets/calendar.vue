@@ -47,7 +47,7 @@ const widget = define({
 		showJucheYear: {
 			type: 'boolean',
 			default: false,
-		}
+		},
 	})
 });
 
