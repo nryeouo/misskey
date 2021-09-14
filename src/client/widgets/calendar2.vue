@@ -4,6 +4,7 @@
 		<p class="month-and-year">
 			<span class="jucheYear" v-if="props.showJucheYear">{{ $t('jucheYearX', { jucheYear, year }) }}</span>
 			<span class="year" v-else>{{ $t('yearX', { year }) }}</span>
+			<br />
 			<span class="month">{{ $t('monthX', { month }) }}</span>
 		</p>
 		<p class="day">{{ $t('dayX', { day }) }}</p>
