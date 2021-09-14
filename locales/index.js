@@ -24,8 +24,10 @@ const languages = [
 	'id-ID',
 	'ja-JP',
 	'ja-KS',
+	'ja-JQ',
 	'kab-KAB',
 	'kn-IN',
+	'ko-KP',
 	'ko-KR',
 	'nl-NL',
 	'no-NO',
@@ -41,6 +43,7 @@ const languages = [
 const primaries = {
 	'en': 'US',
 	'ja': 'JP',
+	'ko': 'KR',
 	'zh': 'CN',
 };
 
@@ -52,6 +55,8 @@ module.exports = Object.entries(locales)
 		switch (k) {
 			case 'ja-JP': return v;
 			case 'ja-KS':
+			case 'ja-JQ':
+			case 'ko-KP':
 			case 'en-US': return merge(locales['ja-JP'], v);
 			default: return merge(
 				locales['ja-JP'],

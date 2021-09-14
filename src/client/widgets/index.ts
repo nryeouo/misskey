@@ -5,6 +5,7 @@ export default function(app: App) {
 	app.component('MkwNotifications', defineAsyncComponent(() => import('./notifications.vue')));
 	app.component('MkwTimeline', defineAsyncComponent(() => import('./timeline.vue')));
 	app.component('MkwCalendar', defineAsyncComponent(() => import('./calendar.vue')));
+	app.component('MkwCalendar2', defineAsyncComponent(() => import('./calendar2.vue')));
 	app.component('MkwRss', defineAsyncComponent(() => import('./rss.vue')));
 	app.component('MkwTrends', defineAsyncComponent(() => import('./trends.vue')));
 	app.component('MkwClock', defineAsyncComponent(() => import('./clock.vue')));
@@ -27,6 +28,7 @@ export const widgets = [
 	'notifications',
 	'timeline',
 	'calendar',
+	'calendar2',
 	'rss',
 	'trends',
 	'clock',
