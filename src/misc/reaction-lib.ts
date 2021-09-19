@@ -19,7 +19,7 @@ const legacies: Record<string, string> = {
 
 export async function getFallbackReaction(): Promise<string> {
 	const meta = await fetchMeta();
-	return meta.useStarForReactionFallback ? '⭐' : '👍';
+	return meta.useStarForReactionFallback ? '⭐' : '⭐';
 }
 
 export function convertLegacyReactions(reactions: Record<string, number>) {
