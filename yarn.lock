@@ -1058,6 +1058,11 @@
   dependencies:
     "@types/node" "*"
 
+"@types/suncalc@1.8.1":
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/@types/suncalc/-/suncalc-1.8.1.tgz#64fd7e779c03e5df16e6140b8e00d4521fa4185e"
+  integrity sha512-PNtzFQhdAIw3x5HEjVMxbyBwciX42C/Cg6J1foq2z/t9rucLGGu9nqQxOl005wGZR/fOxw49exwZUCmbnT/vGw==
+
 "@types/tapable@^1":
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/@types/tapable/-/tapable-1.0.7.tgz#545158342f949e8fd3bfd813224971ecddc3fac4"
