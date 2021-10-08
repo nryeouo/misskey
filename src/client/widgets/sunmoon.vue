@@ -17,6 +17,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import moment from "moment";
 import SunCalc from "suncalc";
 import define from './define';
 import * as os from '@client/os';
@@ -48,8 +49,8 @@ export default defineComponent({
 			year: 2000,
 			month: 1,
 			day: 1,
-			sunRiseTime: new Date(),
-			sunSetTime: new Date(),
+			sunRiseTime: "00:00",
+			sunSetTime: "00:00",
 			moonAge: 0.0,
 			moonFace: `${twemojiSvgBase}/1f313.svg`,
 			clock: 0
@@ -81,11 +82,13 @@ export default defineComponent({
 			const sunTimes = SunCalc.getTimes(hour12, this.props.latitude, this.props.longitude);
 			const MoonTimes = SunCalc.getMoonIllumination(hour12);
 
-			this.sunRiseTime = sunTimes["sunrise"];
-			this.sunSetTime = sunTimes["sunset"];
+			const sunRiseTime0 = sunTimes["sunrise"];
+			const sunSetTime0 = sunTimes["sunset"];
+			this.sunRiseTime = moment(sunRiseTime0).format("hh:mm");
+			this.sunSetTime = moment(sunSetTime0).format("hh:mm");
 			const moonPhase = MoonTimes["phase"];
-			this.moonAge = 29.5 * moonPhase;
-			const moonFaceImg = ["a", "2", "3", "4", "d", "6", "7", "8"][Math.floor(8 * this.moonAge)];
+			this.moonAge = Math.round(295 * moonPhase) / 10;
+			const moonFaceImg = ["a", "2", "3", "4", "d", "6", "7", "8"][Math.floor(8 * moonPhase)];
 			this.moonFace = `${twemojiSvgBase}/1f31${moonFaceImg}.svg`;
 		}
 	}
