@@ -44,4 +44,5 @@ export const widgets = [
 	'button',
 	'aiscript',
 	'aichan',
+	'sunmoon',
 ];
