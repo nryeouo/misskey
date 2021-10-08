@@ -57,7 +57,7 @@ export default defineComponent({
 	},
 	created() {
 		this.tick();
-		this.clock = setInterval(this.tick, 1000);
+		this.clock = setInterval(this.tick, 8000);
 	},
 	beforeUnmount() {
 		clearInterval(this.clock);
@@ -73,8 +73,13 @@ export default defineComponent({
 			this.month = nm + 1;
 			this.day = nd;
 
-			const sunTimes = SunCalc.getTimes(now, this.props.latitude, this.props.longitude);
-			const MoonTimes = SunCalc.getMoonIllumination(now);
+			const hour12 = now;
+			hour12.setHours(12);
+			hour12.setMinutes(0);
+			hour12.setSeconds(0);
+
+			const sunTimes = SunCalc.getTimes(hour12, this.props.latitude, this.props.longitude);
+			const MoonTimes = SunCalc.getMoonIllumination(hour12);
 
 			this.sunRiseTime = sunTimes["sunrise"];
 			this.sunSetTime = sunTimes["sunset"];
