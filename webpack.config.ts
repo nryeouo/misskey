@@ -151,6 +151,10 @@ module.exports = {
 		new WebpackOnBuildPlugin((stats: any) => {
 			fs.writeFileSync('./built/meta.json', JSON.stringify({ version: meta.version }), 'utf-8');
 		}),
+		new webpack.IgnorePlugin({
+			resourceRegExp: /^\.\/locale$/,
+			contextRegExp: /moment$/,
+		}),
 	],
 	output: {
 		path: __dirname + '/built/assets',
