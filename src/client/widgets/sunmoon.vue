@@ -1,7 +1,7 @@
 <template>
 <div class="mkw-sunmoon" :class="{ _panel: !props.transparent }">
 	<div class="lunar-calendar">
-		<p class="moonface"><img :src="moonFace"></p>
+		<p class="moonface"><img :src="moonFace" height="64px"></p>
 		<p class="moonage">{{ moonAge }}</p>
 	</div>
 	<div class="suntime">
@@ -98,12 +98,12 @@ export default defineComponent({
 <style lang="scss" scoped>
 .mkw-sunmoon {
 	padding: 16px 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
 	&:after {
 		content: "";
-		display: flex;
-		justify-content: center;
-		align-items: center;
 	}
 
 	> .lunar-calendar {
