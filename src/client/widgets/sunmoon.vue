@@ -84,8 +84,8 @@ export default defineComponent({
 
 			const sunRiseTime0 = sunTimes["sunrise"];
 			const sunSetTime0 = sunTimes["sunset"];
-			this.sunRiseTime = moment(sunRiseTime0).format("hh:mm");
-			this.sunSetTime = moment(sunSetTime0).format("hh:mm");
+			this.sunRiseTime = moment(sunRiseTime0).format("HH:mm");
+			this.sunSetTime = moment(sunSetTime0).format("HH:mm");
 			const moonPhase = MoonTimes["phase"];
 			this.moonAge = Math.round(295 * moonPhase) / 10;
 			const moonFaceImg = ["a", "2", "3", "4", "d", "6", "7", "8"][Math.floor(8 * moonPhase)];
@@ -101,13 +101,14 @@ export default defineComponent({
 
 	&:after {
 		content: "";
-		display: block;
-		clear: both;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 
 	> .lunar-calendar {
 		float: left;
-		width: 50%;
+		width: 40%;
 		text-align: center;
 
 		> p {
@@ -117,7 +118,6 @@ export default defineComponent({
 		}
 
 		> .moonface {
-			margin: 10px 0;
 			line-height: 72px;
 			font-size: 4em;
 		}
@@ -125,16 +125,17 @@ export default defineComponent({
 
 	> .suntime {
 		display: block;
-		float: left;
-		width: 40%;
+		float: right;
+		text-align: center;
+		width: 60%;
 		padding: 0 16px 0 0;
 		box-sizing: border-box;
 
 		> div {
-			margin-bottom: 8px;
+			margin-bottom: 16px;
 
 			&:last-child {
-				margin-bottom: 4px;
+				margin-bottom: 0;
 			}
 
 			> p {
