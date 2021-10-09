@@ -1,7 +1,7 @@
 <template>
 <div class="mkw-sunmoon" :class="{ _panel: !props.transparent }">
 	<div class="lunar-calendar">
-		<p class="moonface"><img :src="moonFace" height="64px"></p>
+		<p class="moonface"><img :src="moonFace" height="64"></p>
 		<p class="moonage">{{ moonAge }}</p>
 	</div>
 	<div class="suntime">
