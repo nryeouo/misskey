@@ -75,7 +75,7 @@ export default defineComponent({
 			this.month = nm + 1;
 			this.day = nd;
 
-			const hour12 = now;
+			let hour12 = now;
 			hour12.setHours(12);
 			hour12.setMinutes(0);
 			hour12.setSeconds(0);
