@@ -89,7 +89,7 @@ export default defineComponent({
 			this.sunRiseTime = moment(sunRiseTime0).format("HH:mm");
 			this.sunSetTime = moment(sunSetTime0).format("HH:mm");
 			const moonPhase = moonTimes["phase"];
-			this.moonAge = (29.5 * moonPhase).toPrecision(String(moonPhase).length + 1);
+			this.moonAge = (29.5 * moonPhase).toFixed(1);
 			const moonFaceImg = ["a", "2", "3", "4", "d", "6", "7", "8"][Math.floor(8 * moonPhase)];
 			this.moonFace = `${twemojiSvgBase}/1f31${moonFaceImg}.svg`;
 			this.moonAngle = moonPosition.parallacticAngle * (180 / Math.PI);
