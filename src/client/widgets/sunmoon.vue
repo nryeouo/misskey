@@ -1,7 +1,7 @@
 <template>
 <div class="mkw-sunmoon" :class="{ _panel: !props.transparent }">
 	<div class="lunar-calendar">
-		<p class="moonface"><img :src="moonFace" height="64"></p>
+		<p class="moonface"><img :src="moonFace" height="64" :style="`transform:rotateZ(${moonAngle}deg);`"></p>
 		<p class="moonage">{{ moonAge }}</p>
 	</div>
 	<div class="suntime">
@@ -51,8 +51,9 @@ export default defineComponent({
 			day: 1,
 			sunRiseTime: "00:00",
 			sunSetTime: "00:00",
-			moonAge: 0.0,
+			moonAge: "0.0",
 			moonFace: `${twemojiSvgBase}/1f313.svg`,
+			moonAngle: 0,
 			clock: 0
 		};
 	},
@@ -80,16 +81,18 @@ export default defineComponent({
 			hour12.setSeconds(0);
 
 			const sunTimes = SunCalc.getTimes(hour12, this.props.latitude, this.props.longitude);
-			const MoonTimes = SunCalc.getMoonIllumination(hour12);
+			const moonPosition = SunCalc.getMoonPosition(now, this.props.latitude, this.props.longitude);
+			const moonTimes = SunCalc.getMoonIllumination(hour12);
 
 			const sunRiseTime0 = sunTimes["sunrise"];
 			const sunSetTime0 = sunTimes["sunset"];
 			this.sunRiseTime = moment(sunRiseTime0).format("HH:mm");
 			this.sunSetTime = moment(sunSetTime0).format("HH:mm");
-			const moonPhase = MoonTimes["phase"];
-			this.moonAge = Math.round(295 * moonPhase) / 10;
+			const moonPhase = moonTimes["phase"];
+			this.moonAge = (29.5 * moonPhase).toPrecision(String(moonPhase).length + 1);
 			const moonFaceImg = ["a", "2", "3", "4", "d", "6", "7", "8"][Math.floor(8 * moonPhase)];
 			this.moonFace = `${twemojiSvgBase}/1f31${moonFaceImg}.svg`;
+			this.moonAngle = moonPosition.parallacticAngle * (180 / Math.PI);
 		}
 	}
 });
