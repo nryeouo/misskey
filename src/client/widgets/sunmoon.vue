@@ -82,7 +82,7 @@ export default defineComponent({
 
 			const sunTimes = SunCalc.getTimes(hour12, this.props.latitude, this.props.longitude);
 			const moonPosition = SunCalc.getMoonPosition(now, this.props.latitude, this.props.longitude);
-			const moonTimes = SunCalc.getMoonIllumination(hour12);
+			const moonTimes = SunCalc.getMoonIllumination(now);
 
 			const sunRiseTime0 = sunTimes["sunrise"];
 			const sunSetTime0 = sunTimes["sunset"];
@@ -92,7 +92,7 @@ export default defineComponent({
 			this.moonAge = (29.5 * moonPhase).toFixed(1);
 			const moonFaceImg = ["a", "2", "3", "4", "d", "6", "7", "8"][Math.floor(8 * moonPhase)];
 			this.moonFace = `${twemojiSvgBase}/1f31${moonFaceImg}.svg`;
-			this.moonAngle = moonPosition.parallacticAngle * (180 / Math.PI);
+			this.moonAngle = (moonTimes.angle - moonPosition.parallacticAngle) * (180 / Math.PI);
 		}
 	}
 });
