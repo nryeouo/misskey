@@ -1,7 +1,7 @@
 <template>
 <div class="mkw-sunmoon" :class="{ _panel: !props.transparent }">
 	<div class="lunar-calendar">
-		<p class="moonface"><img :src="moonFace" height="64" :style="`transform:rotateZ(${moonAngle}deg);`"></p>
+		<p class="moonface"><img :src="moonFace" height="64" :style="`transform:rotateZ(${moonAngle}rad);`"></p>
 		<p class="moonage">{{ moonAge }}</p>
 	</div>
 	<div class="suntime">
@@ -92,7 +92,7 @@ export default defineComponent({
 			this.moonAge = (29.5 * moonPhase).toFixed(1);
 			const moonFaceImg = ["a", "2", "3", "4", "d", "6", "7", "8"][Math.floor(8 * moonPhase)];
 			this.moonFace = `${twemojiSvgBase}/1f31${moonFaceImg}.svg`;
-			this.moonAngle = (moonTimes.angle - moonPosition.parallacticAngle) * (180 / Math.PI);
+			this.moonAngle = moonTimes.angle - moonPosition.parallacticAngle;
 		}
 	}
 });
