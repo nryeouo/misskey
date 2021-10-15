@@ -1,6 +1,9 @@
 <template>
 <div>
-	<MkTab v-model:value="tab" v-if="$i">
+	<MkHeader :info="header"/>
+
+	<!-- TODO: MkHeaderに統合 -->
+	<MkTab v-model="tab" v-if="$i">
 		<option value="featured"><i class="fas fa-fire-alt"></i> {{ $ts._pages.featured }}</option>
 		<option value="my"><i class="fas fa-edit"></i> {{ $ts._pages.my }}</option>
 		<option value="liked"><i class="fas fa-heart"></i> {{ $ts._pages.liked }}</option>
@@ -46,11 +49,17 @@ export default defineComponent({
 			[symbols.PAGE_INFO]: {
 				title: this.$ts.pages,
 				icon: 'fas fa-sticky-note',
+				bg: 'var(--bg)',
+			},
+			header: {
+				title: this.$ts.pages,
+				icon: 'fas fa-sticky-note',
+				bg: 'var(--bg)',
 				actions: [{
 					icon: 'fas fa-plus',
 					text: this.$ts.create,
-					handler: this.create
-				}]
+					handler: this.create,
+				}],
 			},
 			tab: 'featured',
 			featuredPagesPagination: {
