@@ -790,6 +790,20 @@ pubSub: "Pub/Subのアカウント"
 lastCommunication: "直近の通信"
 resolved: "解決済み"
 unresolved: "未解決"
+itsOn: "オンになっています"
+itsOff: "オフになっています"
+emailRequiredForSignup: "アカウント登録にメールアドレスを必須にする"
+unread: "未読"
+filter: "フィルタ"
+controllPanel: "コントロールパネル"
+manageAccounts: "アカウントを管理"
+startVoiceCall: "音声通話を開始"
+hangVoiceCall: "音声通話を終了"
+
+_signup:
+  almostThere: "ほとんど完了です"
+  emailAddressInfo: "あなたが使っているメールアドレスを入力してください。"
+  emailSent: "入力されたメールアドレス({email})宛に確認のメールが送信されました。メールに記載されたリンクにアクセスすると、アカウントの作成が完了します。"
 
 _accountDelete:
   accountDelete: "アカウントの削除"
