@@ -143,12 +143,12 @@ export function getUserMenu(user) {
 		to: '/my/messaging/' + getAcct(user),
 	} : undefined
 	, meId != user.id ? {
-		type: 'link',
 		icon: 'fas fa-phone-alt',
 		text: i18n.locale.startVoiceCall,
 		action: () => {
 			os.dialog({
 				type: 'error',
+				title: i18n.locale.nothing,
 				text: i18n.locale.nothing
 			});
 		}
