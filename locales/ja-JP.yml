@@ -800,6 +800,8 @@ unread: "未読"
 filter: "フィルタ"
 controllPanel: "コントロールパネル"
 manageAccounts: "アカウントを管理"
+startVoiceCall: "音声通話を開始"
+hangVoiceCall: "音声通話を終了"
 
 _signup:
   almostThere: "ほとんど完了です"
