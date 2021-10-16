@@ -1,7 +1,7 @@
 {
 	"name": "misskey",
 	"author": "syuilo <syuilotan@yahoo.co.jp>",
-	"version": "12.92.0-00",
+	"version": "12.92.0-01",
 	"codename": "indigo",
 	"repository": {
 		"type": "git",
@@ -107,6 +107,7 @@
 		"@typescript-eslint/parser": "5.0.0",
 		"@vue/compiler-sfc": "3.2.20",
 		"abort-controller": "3.0.0",
+		"agora-rtc-sdk": "3.6.5",
 		"apexcharts": "3.28.3",
 		"autobind-decorator": "2.4.0",
 		"autosize": "4.0.4",

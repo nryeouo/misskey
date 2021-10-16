@@ -141,7 +141,18 @@ export function getUserMenu(user) {
 		icon: 'fas fa-comments',
 		text: i18n.locale.startMessaging,
 		to: '/my/messaging/' + getAcct(user),
-	} : undefined, null, {
+	} : undefined
+	, meId != user.id ? {
+		type: 'link',
+		icon: 'fas fa-phone-alt',
+		text: i18n.locale.startVoiceCall,
+		action: () => {
+			os.dialog({
+				type: 'error',
+				text: i18n.locale.nothing
+			});
+		}
+	} :undefined, null, {
 		icon: 'fas fa-list-ul',
 		text: i18n.locale.addToList,
 		action: pushList
