@@ -15,7 +15,9 @@
       width="1" 
       height="0.2" 
       style="fill: #fff"/>
-    <path d="M9.25,4.4H7.75a.25.25,0,0,0-.25.25v.7a.25.25,0,0,0,.25.25h1.5a.25.25,0,0,0,.25-.25v-.7a.25.25,0,0,0-.25-.25Z"/>
+    <path
+			d="M9.25,4.4H7.75a.25.25,0,0,0-.25.25v.7a.25.25,0,0,0,.25.25h1.5a.25.25,0,0,0,.25-.25v-.7a.25.25,0,0,0-.25-.25Z"
+			style="fill: #fff"/>
   </g>
   <text 
     transform="translate(8 5.4)" 
@@ -119,7 +121,7 @@ export default defineComponent({
 			return Math.PI * (this.h % 12 + (this.m + this.s / 60) / 60) / 6;
 		},
 		mAngle(): number {
-			return Math.PI * (this.m + this.s / 60) / 30;
+			return Math.PI * (this.m + Math.floor(this.s / 30) / 2) / 30;
 		},
 		sAngle(): number {
 			return Math.PI * this.s / 30;
