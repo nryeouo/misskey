@@ -9,13 +9,13 @@
 	/>
 
 	<line
-		:x1="5 - (Math.sin(sAngle) * (sHandLengthRatio * handsTailLength))"
-		:y1="5 + (Math.cos(sAngle) * (sHandLengthRatio * handsTailLength))"
-		:x2="5 + (Math.sin(sAngle) * ((sHandLengthRatio * 5) - handsPadding))"
-		:y2="5 - (Math.cos(sAngle) * ((sHandLengthRatio * 5) - handsPadding))"
-		:stroke="sHandColor"
-		:stroke-width="thickness / 2"
-		stroke-linecap="round"
+		:x1="5 - (Math.sin(hAngle) * (hHandLengthRatio * handsTailLength))"
+		:y1="5 + (Math.cos(hAngle) * (hHandLengthRatio * handsTailLength))"
+		:x2="5 + (Math.sin(hAngle) * ((hHandLengthRatio * 5) - handsPadding))"
+		:y2="5 - (Math.cos(hAngle) * ((hHandLengthRatio * 5) - handsPadding))"
+		:stroke="hHandColor"
+		:stroke-width="thickness"
+		stroke-linecap="square"
 	/>
 
 	<line
@@ -25,18 +25,19 @@
 		:y2="5 - (Math.cos(mAngle) * ((mHandLengthRatio * 5) - handsPadding))"
 		:stroke="mHandColor"
 		:stroke-width="thickness"
-		stroke-linecap="round"
+		stroke-linecap="square"
 	/>
 
-	<line
-		:x1="5 - (Math.sin(hAngle) * (hHandLengthRatio * handsTailLength))"
-		:y1="5 + (Math.cos(hAngle) * (hHandLengthRatio * handsTailLength))"
-		:x2="5 + (Math.sin(hAngle) * ((hHandLengthRatio * 5) - handsPadding))"
-		:y2="5 - (Math.cos(hAngle) * ((hHandLengthRatio * 5) - handsPadding))"
-		:stroke="hHandColor"
-		:stroke-width="thickness"
-		stroke-linecap="round"
+		<line
+		:x1="5 - (Math.sin(sAngle) * (sHandLengthRatio * handsTailLength))"
+		:y1="5 + (Math.cos(sAngle) * (sHandLengthRatio * handsTailLength))"
+		:x2="5 + (Math.sin(sAngle) * ((sHandLengthRatio * 5) - handsPadding))"
+		:y2="5 - (Math.cos(sAngle) * ((sHandLengthRatio * 5) - handsPadding))"
+		:stroke="sHandColor"
+		:stroke-width="thickness / 2"
+		stroke-linecap="square"
 	/>
+
 </svg>
 </template>
 
