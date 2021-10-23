@@ -8,6 +8,19 @@
 					:key="i"
 	/>
 
+  <g>
+    <rect
+      x="8" 
+      y="4.9" 
+      width="1" 
+      height="0.2" 
+      style="fill: #fff"/>
+    <path d="M9.25,4.4H7.75a.25.25,0,0,0-.25.25v.7a.25.25,0,0,0,.25.25h1.5a.25.25,0,0,0,.25-.25v-.7a.25.25,0,0,0-.25-.25Z"/>
+  </g>
+  <text 
+    transform="translate(8 5.4)" 
+    style="font-size: 1px;fill: #000;">{{this.day}}</text>
+
 	<line
 		:x1="5 - (Math.sin(hAngle) * (hHandLengthRatio * handsTailLength))"
 		:y1="5 + (Math.cos(hAngle) * (hHandLengthRatio * handsTailLength))"
@@ -56,6 +69,7 @@ export default defineComponent({
 	data() {
 		return {
 			now: new Date(),
+			day: 0,
 			enabled: true,
 
 			graduationsPadding: 0.5,
@@ -139,6 +153,7 @@ export default defineComponent({
 	methods: {
 		tick() {
 			this.now = new Date();
+			this.day = this.now.getDate();
 		}
 	}
 });
