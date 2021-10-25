@@ -790,7 +790,7 @@ pubSub: "Pub/Sub 계정"
 lastCommunication: "마지막 통신"
 resolved: "해결됨"
 unresolved: "해결되지 않음"
-controllPanel: "제어판"
+controlPanel: "제어판"
 startVoiceCall: "통화 시작"
 hangVoiceCall: "통화 종료"
 
