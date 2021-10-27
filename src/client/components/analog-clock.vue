@@ -91,9 +91,9 @@ export default defineComponent({
 			graduationsPadding: 0.5,
 			handsPadding: 1,
 			handsTailLength: 0.7,
-			hHandLengthRatio: 0.7,
+			hHandLengthRatio: 0.75,
 			mHandLengthRatio: 1,
-			sHandLengthRatio: 0.6,
+			sHandLengthRatio: 0.75,
 
 			computedStyle: getComputedStyle(document.documentElement)
 		};
