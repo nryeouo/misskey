@@ -1,5 +1,13 @@
 <template>
 <svg class="mbcofsoe" viewBox="0 0 10 10" preserveAspectRatio="none">
+
+<circle 
+	cx="5"
+	cy="5"
+	r="5"
+	:fill="backgroundColor"
+/>
+
 	<circle v-for="(angle, i) in graduations"
 					:cx="5 + (Math.sin(angle) * (5 - graduationsPadding))"
 					:cy="5 - (Math.cos(angle) * (5 - graduationsPadding))"
@@ -29,7 +37,7 @@
 		:x2="5 + (Math.sin(hAngle) * ((hHandLengthRatio * 5) - handsPadding))"
 		:y2="5 - (Math.cos(hAngle) * ((hHandLengthRatio * 5) - handsPadding))"
 		:stroke="hHandColor"
-		:stroke-width="thickness"
+		:stroke-width="thickness * 2"
 		stroke-linecap="square"
 	/>
 
@@ -39,11 +47,11 @@
 		:x2="5 + (Math.sin(mAngle) * ((mHandLengthRatio * 5) - handsPadding))"
 		:y2="5 - (Math.cos(mAngle) * ((mHandLengthRatio * 5) - handsPadding))"
 		:stroke="mHandColor"
-		:stroke-width="thickness"
+		:stroke-width="thickness * 2"
 		stroke-linecap="square"
 	/>
 
-		<line
+	<line
 		:x1="5 - (Math.sin(sAngle) * (sHandLengthRatio * handsTailLength))"
 		:y1="5 + (Math.cos(sAngle) * (sHandLengthRatio * handsTailLength))"
 		:x2="5 + (Math.sin(sAngle) * ((sHandLengthRatio * 5) - handsPadding))"
@@ -51,6 +59,12 @@
 		:stroke="sHandColor"
 		:stroke-width="thickness / 2"
 		stroke-linecap="square"
+	/>
+	<circle
+		:cx="5 + (Math.sin(sAngle) * ((sHandLengthRatio * 5) - handsPadding))"
+		:cy="5 - (Math.cos(sAngle) * ((sHandLengthRatio * 5) - handsPadding))"
+		r="0.5"
+		:fill="sHandColor"
 	/>
 
 </svg>
@@ -77,9 +91,9 @@ export default defineComponent({
 			graduationsPadding: 0.5,
 			handsPadding: 1,
 			handsTailLength: 0.7,
-			hHandLengthRatio: 0.75,
+			hHandLengthRatio: 0.7,
 			mHandLengthRatio: 1,
-			sHandLengthRatio: 1,
+			sHandLengthRatio: 0.6,
 
 			computedStyle: getComputedStyle(document.documentElement)
 		};
@@ -91,20 +105,23 @@ export default defineComponent({
 		},
 
 		majorGraduationColor(): string {
-			return this.dark ? 'rgba(255, 255, 255, 0.3)' : 'rgba(0, 0, 0, 0.3)';
+			return this.dark ? 'rgba(255, 255, 255, 1)' : 'rgba(0, 0, 0, 1)';
 		},
 		minorGraduationColor(): string {
-			return this.dark ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.2)';
+			return this.dark ? 'rgba(255, 255, 255, 1)' : 'rgba(0, 0, 0, 1)';
 		},
 
 		sHandColor(): string {
-			return this.dark ? 'rgba(255, 255, 255, 0.5)' : 'rgba(0, 0, 0, 0.3)';
+			return 'rgba(189, 36, 32, 1)';
 		},
 		mHandColor(): string {
-			return tinycolor(this.computedStyle.getPropertyValue('--fg')).toHexString();
+			return this.dark ? 'rgba(255, 255, 255, 1)' : 'rgba(0, 0, 0, 1)';
 		},
 		hHandColor(): string {
-			return tinycolor(this.computedStyle.getPropertyValue('--accent')).toHexString();
+			return this.dark ? 'rgba(255, 255, 255, 1)' : 'rgba(0, 0, 0, 1)';
+		},
+		backgroundColor(): string {
+			return this.dark ? 'rgba(0, 0, 0, 1)' : 'rgba(255, 255, 255, 1)';
 		},
 
 		s(): number {
