@@ -37,7 +37,7 @@
 		:x2="5 + (Math.sin(hAngle) * ((hHandLengthRatio * 5) - handsPadding))"
 		:y2="5 - (Math.cos(hAngle) * ((hHandLengthRatio * 5) - handsPadding))"
 		:stroke="hHandColor"
-		:stroke-width="thickness * 2"
+		:stroke-width="thickness * 2.5"
 		stroke-linecap="square"
 	/>
 
@@ -63,7 +63,7 @@
 	<circle
 		:cx="5 + (Math.sin(sAngle) * ((sHandLengthRatio * 5) - handsPadding))"
 		:cy="5 - (Math.cos(sAngle) * ((sHandLengthRatio * 5) - handsPadding))"
-		r="0.5"
+		r="0.35"
 		:fill="sHandColor"
 	/>
 
@@ -91,9 +91,9 @@ export default defineComponent({
 			graduationsPadding: 0.5,
 			handsPadding: 1,
 			handsTailLength: 0.7,
-			hHandLengthRatio: 0.75,
+			hHandLengthRatio: 0.8,
 			mHandLengthRatio: 1,
-			sHandLengthRatio: 0.75,
+			sHandLengthRatio: 0.8,
 
 			computedStyle: getComputedStyle(document.documentElement)
 		};
