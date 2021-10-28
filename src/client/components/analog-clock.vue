@@ -124,6 +124,9 @@ export default defineComponent({
 			return this.dark ? 'rgba(0, 0, 0, 1)' : 'rgba(255, 255, 255, 1)';
 		},
 
+		ms(): number {
+			return this.now.getMilliseconds();
+		},
 		s(): number {
 			return this.now.getSeconds();
 		},
@@ -135,13 +138,15 @@ export default defineComponent({
 		},
 
 		hAngle(): number {
-			return Math.PI * (this.h % 12 + (this.m + this.s / 60) / 60) / 6;
+			return Math.PI * (this.h % 12 + this.m / 60) / 6;
 		},
 		mAngle(): number {
-			return Math.PI * (this.m + Math.floor(this.s / 30) / 2) / 30;
+			return Math.PI * this.m / 30;
 		},
+		// Swiss
 		sAngle(): number {
-			return Math.PI * this.s / 30;
+			const k = Math.PI * (this.s + this.ms / 1000) / 29;
+			return (k >= Math.PI * 2) ? Math.PI * 2 : k;
 		},
 
 		graduations(): any {
