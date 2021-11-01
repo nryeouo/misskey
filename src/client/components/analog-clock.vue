@@ -72,6 +72,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import gsap from "gsap";
 import * as tinycolor from 'tinycolor2';
 
 export default defineComponent({
