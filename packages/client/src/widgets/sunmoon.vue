@@ -21,8 +21,7 @@ import { defineComponent } from 'vue';
 import moment from "moment";
 import SunCalc from "suncalc";
 import define from './define';
-import * as os from '@client/os';
-import { twemojiSvgBase } from '@client/../misc/twemoji-base';
+import { twemojiSvgBase } from '@/scripts/twemoji-base';
 
 const widget = define({
 	name: 'sunmoon',
