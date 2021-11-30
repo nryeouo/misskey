@@ -165,7 +165,7 @@ export default defineComponent({
 		const update = () => {
 			if (this.enabled) {
 				this.tick();
-				setTimeout(update, 1000);
+				setTimeout(update, 200);
 			}
 		};
 		update();
