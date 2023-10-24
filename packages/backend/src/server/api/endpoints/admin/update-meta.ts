@@ -96,8 +96,8 @@ export const paramDef = {
 		tosUrl: { type: 'string', nullable: true },
 		repositoryUrl: { type: 'string' },
 		feedbackUrl: { type: 'string' },
-		impressumUrl: { type: 'string' },
-		privacyPolicyUrl: { type: 'string' },
+		impressumUrl: { type: 'string', nullable: true },
+		privacyPolicyUrl: { type: 'string', nullable: true },
 		useObjectStorage: { type: 'boolean' },
 		objectStorageBaseUrl: { type: 'string', nullable: true },
 		objectStorageBucket: { type: 'string', nullable: true },
@@ -120,6 +120,7 @@ export const paramDef = {
 		serverRules: { type: 'array', items: { type: 'string' } },
 		preservedUsernames: { type: 'array', items: { type: 'string' } },
 		manifestJsonOverride: { type: 'string' },
+		enableFanoutTimeline: { type: 'boolean' },
 		perLocalUserUserTimelineCacheMax: { type: 'integer' },
 		perRemoteUserUserTimelineCacheMax: { type: 'integer' },
 		perUserHomeTimelineCacheMax: { type: 'integer' },
@@ -478,6 +479,10 @@ export default class extends Endpoint<typeof meta, typeof paramDef> { // eslint-
 
 			if (ps.manifestJsonOverride !== undefined) {
 				set.manifestJsonOverride = ps.manifestJsonOverride;
+			}
+
+			if (ps.enableFanoutTimeline !== undefined) {
+				set.enableFanoutTimeline = ps.enableFanoutTimeline;
 			}
 
 			if (ps.perLocalUserUserTimelineCacheMax !== undefined) {

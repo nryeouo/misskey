@@ -293,6 +293,10 @@ export const defaultStore = markRaw(new Storage('base', {
 		where: 'device',
 		default: false,
 	},
+	showAvatarDecorations: {
+		where: 'device',
+		default: true,
+	},
 	postFormWithHashtags: {
 		where: 'device',
 		default: false,
@@ -359,6 +363,10 @@ export const defaultStore = markRaw(new Storage('base', {
 	},
 	tlWithReplies: {
 		where: 'device',
+		default: false,
+	},
+	defaultWithReplies: {
+		where: 'account',
 		default: false,
 	},
 }));
